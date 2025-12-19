@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Growth System - Get More Clients in 30 Days</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 61, 61, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-text h1 .highlight {
+            color: #ff3d3d;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(255, 61, 61, 0.15);
+            border: 1px solid #ff3d3d;
+            color: #ff3d3d;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: #ff3d3d;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 61, 61, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ff3d3d;
+            border: 2px solid #ff3d3d;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 61, 61, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-form {
+            position: relative;
+            background: #fafafa;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 61, 61, 0.2);
+        }
+
+        .hero-form h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .hero-form p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .hero-form form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hero-form .form-group {
+            margin-bottom: 0;
+        }
+
+        .hero-form .form-group:last-of-type,
+        .hero-form .form-group:nth-last-child(2) {
+            grid-column: 1 / -1;
+        }
+
+        .hero-form .form-submit {
+            grid-column: 1 / -1;
+            margin-top: 10px;
+        }
+
+        /* FORM MODAL */
+        .form-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .form-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: #1a1a1a;
+            padding: 50px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 61, 61, 0.2);
+            position: relative;
+        }
+
+        .form-container form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-container .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-container .form-group:last-of-type,
+        .form-container .form-group:nth-last-child(2) {
+            grid-column: 1 / -1;
+        }
+
+        .form-container .form-submit {
+            grid-column: 1 / -1;
+            margin-top: 10px;
+        }
+
+        .close-form {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+        }
+
+        .close-form:hover {
+            color: #ff3d3d;
+        }
+
+        .form-container h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .form-container p {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-form .form-group label {
+            color: #1a1a1a;
+        }
+
+        .form-container .form-group label {
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-form .form-group input,
+        .hero-form .form-group select {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            color: #1a1a1a;
+        }
+
+        .form-container .form-group input,
+        .form-container .form-group select {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #ffffff;
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff3d3d' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        .hero-form .form-group select {
+            background-color: #ffffff;
+        }
+
+        .form-container .form-group select {
+            background-color: #0a0a0a;
+        }
+
+        .hero-form .form-group select option {
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            padding: 10px;
+        }
+
+        .form-container .form-group select option {
+            background-color: #0a0a0a !important;
+            color: #ffffff !important;
+            padding: 10px;
+        }
+
+        .form-group select option:checked {
+            background-color: rgba(255, 61, 61, 0.2) !important;
+            color: #ffffff !important;
+        }
+
+        .form-group select option:hover {
+            background-color: rgba(255, 61, 61, 0.1) !important;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff3d3d;
+        }
+
+        .hero-form .form-group input:focus,
+        .hero-form .form-group select:focus {
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 61, 61, 0.1);
+            border-color: #ff3d3d;
+        }
+
+        .form-container .form-group input:focus,
+        .form-container .form-group select:focus {
+            background-color: rgba(255, 61, 61, 0.05);
+        }
+
+        .form-group select:focus {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff3d3d' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: #ff3d3d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .form-success {
+            text-align: center;
+            color: #4ade80;
+        }
+
+        .form-success h3 {
+            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* PAIN POINTS SECTION */
+        .pain-points {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .section-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+        }
+
+        .pain-points .section-header h2,
+        .stats .section-header h2,
+        .who-for .section-header h2,
+        .testimonials .section-header h2,
+        .guarantee .section-header h2 {
+            color: #1a1a1a;
+        }
+
+        .hero .section-header h2,
+        .benefits .section-header h2,
+        .process .section-header h2,
+        .before-after .section-header h2,
+        .faq .section-header h2,
+        .final-cta .section-header h2 {
+            color: #ffffff;
+        }
+
+        .section-header h2 .highlight {
+            color: #ff3d3d;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .pain-points .section-header p,
+        .stats .section-header p,
+        .who-for .section-header p,
+        .testimonials .section-header p,
+        .guarantee .section-header p {
+            color: #666;
+        }
+
+        .hero .section-header p,
+        .benefits .section-header p,
+        .process .section-header p,
+        .before-after .section-header p,
+        .faq .section-header p,
+        .final-cta .section-header p {
+            color: #b0b0b0;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 61, 61, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            border-color: #ff3d3d;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 61, 61, 0.1);
+        }
+
+        .pain-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 61, 61, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #ff3d3d;
+        }
+
+        .pain-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .pain-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* BENEFITS SECTION */
+        .benefits {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-image {
+            position: relative;
+            height: 400px;
+        }
+
+        .benefits-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(255, 61, 61, 0.15);
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 61, 61, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+            color: #ff3d3d;
+        }
+
+        .benefit-text h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .benefit-text p {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* STATS SECTION */
+        .stats {
+            padding: 100px 20px;
+            background: #fafafa;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 61, 61, 0.08) 0%, rgba(255, 61, 61, 0.03) 100%);
+            border: 1px solid rgba(255, 61, 61, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: #ff3d3d;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .stat-card p {
+            font-size: 15px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* PROCESS SECTION */
+        .process {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .process-image {
+            position: relative;
+            height: 500px;
+            margin: 0 auto 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        .process-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(255, 61, 61, 0.15);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #252525 0%, #1a1a1a 100%);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-left: 4px solid #ff3d3d;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 61, 61, 0.15);
+        }
+
+        .step-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            color: #ff3d3d;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.6;
+        }
+
+        .step-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        /* WHO IT'S FOR SECTION */
+        .who-for {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .who-for-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .who-for-image {
+            position: relative;
+            height: 450px;
+        }
+
+        .who-for-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(255, 61, 61, 0.15);
+        }
+
+        .who-for-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .who-for-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .who-for-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 61, 61, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ff3d3d;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .who-for-item h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .who-for-item p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* BEFORE/AFTER SECTION */
+        .before-after {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .before-after-image {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .before-after-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(255, 61, 61, 0.2);
+        }
+
+        .before-after-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 100px 20px;
+            background: #fafafa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 61, 61, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: #ff3d3d;
+            box-shadow: 0 20px 40px rgba(255, 61, 61, 0.1);
+        }
+
+        .stars {
+            color: #ff3d3d;
+            margin-bottom: 15px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff3d3d 0%, #ff6b6b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* FAQ SECTION */
+        .faq {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 61, 61, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #ff3d3d;
+            box-shadow: 0 10px 30px rgba(255, 61, 61, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #252525;
+        }
+
+        .faq-toggle {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff3d3d;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff3d3d;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: #ff3d3d;
+            color: #0a0a0a;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #1a1a1a;
+            color: #b0b0b0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 25px;
+            max-height: 500px;
+        }
+
+        /* GUARANTEE SECTION */
+        .guarantee {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .guarantee-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .guarantee-badge {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 61, 61, 0.2) 0%, rgba(255, 61, 61, 0.05) 100%);
+            border: 2px solid #ff3d3d;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .guarantee-badge-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #ff3d3d;
+        }
+
+        .guarantee-badge h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            color: #ff3d3d;
+            font-weight: 700;
+        }
+
+        .guarantee-text h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .guarantee-text h2 .highlight {
+            color: #ff3d3d;
+        }
+
+        .guarantee-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .guarantee-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .guarantee-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .guarantee-check {
+            color: #ff3d3d;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        .guarantee-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* FINAL CTA SECTION */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 61, 61, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .final-cta h2 .highlight {
+            color: #ff3d3d;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .final-urgency {
+            display: inline-block;
+            background: rgba(255, 61, 61, 0.15);
+            border: 1px solid #ff3d3d;
+            color: #ff3d3d;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .final-urgency i {
+            margin-right: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000000;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 61, 61, 0.1);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff3d3d;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-form {
+                padding: 30px;
+            }
+
+            .hero-form h2 {
+                font-size: 24px;
+            }
+
+            .hero-form form,
+            .form-container form {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-form .form-group:last-of-type,
+            .hero-form .form-group:nth-last-child(2),
+            .form-container .form-group:last-of-type,
+            .form-container .form-group:nth-last-child(2) {
+                grid-column: 1;
+            }
+
+            .benefits-content,
+            .who-for-content,
+            .guarantee-content {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-image,
+            .who-for-image {
+                height: 250px;
+            }
+
+            .process-image {
+                height: 300px;
+            }
+
+            .before-after-image {
+                height: 250px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .final-cta h2 {
+                font-size: 32px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <div class="urgency-badge">Limited Spots Available - Lock In Your Access Today</div>
+            <h1>Turn Your Gym into a <span class="highlight">Lead Generation Machine</span></h1>
+            <p>Join 500+ gym owners who are acquiring more qualified clients monthly. Our proven system gets you real leads in 30 days or we work for free.</p>
+            <div class="cta-group">
+                <button class="btn btn-primary" onclick="openForm()">Get Free Consultation</button>
+                <button class="btn btn-secondary" onclick="openForm()">Learn More</button>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-top: 20px;">No credit card required. Takes less than 2 minutes to apply.</p>
+        </div>
+        <div class="hero-form">
+            <h2>Claim Your Free Strategy Session</h2>
+            <p>Fill out this quick form and we'll reach out to schedule your personalized consultation.</p>
+            <form id="heroContactForm" onsubmit="submitHeroForm(event)">
+                <div class="form-group">
+                    <label for="heroName">Full Name</label>
+                    <input type="text" id="heroName" name="name" placeholder="John Smith" required>
+                </div>
+                <div class="form-group">
+                    <label for="heroEmail">Email Address</label>
+                    <input type="email" id="heroEmail" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="heroPhone">Phone Number</label>
+                    <input type="tel" id="heroPhone" name="phone" placeholder="(555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="heroGymName">Gym / Business Name</label>
+                    <input type="text" id="heroGymName" name="gymName" placeholder="Your Gym Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="heroMembers">Current Member Count</label>
+                    <select id="heroMembers" name="members" required>
+                        <option value="" style="color: #999;">Select range</option>
+                        <option value="1-50" style="color: #ffffff;">1-50 members</option>
+                        <option value="51-100" style="color: #ffffff;">51-100 members</option>
+                        <option value="101-250" style="color: #ffffff;">101-250 members</option>
+                        <option value="251-500" style="color: #ffffff;">251-500 members</option>
+                        <option value="500+" style="color: #ffffff;">500+ members</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="heroPainPoint">What's Your Biggest Challenge Right Now?</label>
+                    <select id="heroPainPoint" name="painPoint" required>
+                        <option value="" style="color: #999;">Select an option</option>
+                        <option value="low-leads" style="color: #ffffff;">Not enough qualified leads</option>
+                        <option value="low-conversion" style="color: #ffffff;">Leads not converting</option>
+                        <option value="retention" style="color: #ffffff;">Member retention</option>
+                        <option value="scaling" style="color: #ffffff;">Scaling without staff</option>
+                        <option value="marketing-roi" style="color: #ffffff;">Not sure about marketing ROI</option>
+                        <option value="other" style="color: #ffffff;">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-submit">Get My Free Consultation</button>
+            </form>
+            <div id="heroSuccessMessage" style="display: none;">
+                <div class="form-success">
+                    <h3>Thank You!</h3>
+                    <p>Your application has been received. We'll reach out within 2 hours to confirm your strategy session.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAIN POINTS SECTION -->
+<section class="pain-points">
+    <div class="section-header">
+        <h2>The Gym Owner's <span class="highlight">Biggest Challenge</span></h2>
+        <p>You're great at building fitness programs, but struggling with the business side. Sound familiar?</p>
+    </div>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Inconsistent Lead Flow</h3>
+            <p>Month-to-month inconsistency makes it impossible to scale. You never know if next month will be good or bad.</p>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-clock"></i></div>
+            <h3>Time Spent on Admin</h3>
+            <p>Managing inquiries, callbacks, and follow-ups eats into your actual training time. You're drowning in logistics.</p>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-dollar-sign"></i></div>
+            <h3>High Marketing Costs</h3>
+            <p>Facebook ads, local SEO, Instagram influencers... you're spending big without knowing ROI or who's actually converting.</p>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-times-circle"></i></div>
+            <h3>Low Quality Leads</h3>
+            <p>Wrong audience, wrong timing, wrong message. You waste time talking to tire-kickers instead of serious buyers.</p>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-arrow-trend-down"></i></div>
+            <h3>Losing Members to Competitors</h3>
+            <p>No systematic way to stay top-of-mind. Members drift to other gyms or never join in the first place.</p>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>No Follow-Up System</h3>
+            <p>Leads go cold because you lack automation and tracking. Good prospects get lost in the shuffle.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS SECTION -->
+<section class="benefits">
+    <div class="section-header">
+        <h2>The <span class="highlight">Complete Solution</span></h2>
+        <p>Everything you need to acquire, nurture, and convert serious fitness buyers</p>
+    </div>
+    <div class="benefits-content">
+        <div class="benefits-image">
+            <img src="https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Gym analytics dashboard">
+        </div>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>Predictable Lead Pipeline</h3>
+                    <p>Get a consistent stream of qualified leads. Know exactly how many calls and conversions to expect each month.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>100% Automated Follow-Up</h3>
+                    <p>Never miss a lead. Our system sends emails, texts, and reminders while you focus on delivering world-class training.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>Qualified Buyers Only</h3>
+                    <p>Pre-qualified leads that match your ideal member profile. Less time on the phone with wrong-fit prospects.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>Track Every Dollar Spent</h3>
+                    <p>Know exactly which channels drive conversions. Stop guessing and optimize your marketing budget.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>Member Retention Boost</h3>
+                    <p>Keep members engaged long-term with automated check-ins and personalized communication that builds loyalty.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-text">
+                    <h3>Scale Without Hiring</h3>
+                    <p>Add 50 members or 500 without adding staff. The system does the work—you just close the sale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="stats">
+    <div class="section-header">
+        <h2>By The Numbers</h2>
+        <p>Results from gym owners using our system</p>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>342%</h3>
+            <p>Average Lead Increase</p>
+        </div>
+        <div class="stat-card">
+            <h3>47 Days</h3>
+            <p>Average Time to First Sale</p>
+        </div>
+        <div class="stat-card">
+            <h3>$12K+</h3>
+            <p>Monthly Revenue Added</p>
+        </div>
+        <div class="stat-card">
+            <h3>8h/week</h3>
+            <p>Time Saved on Admin</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process">
+    <div class="section-header">
+        <h2>How We <span class="highlight">Get You Results</span></h2>
+        <p>A proven 5-step process that turns prospects into paying members</p>
+    </div>
+    <div class="process-image">
+        <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500&fit=crop" alt="Process steps visualization">
+    </div>
+    <div class="process-steps">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Lead Capture</h3>
+            <p>We build high-converting landing pages and ads that attract your ideal member profile with precise targeting.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Instant Qualification</h3>
+            <p>Leads fill out a quick form identifying their goals, budget, and commitment level. Only serious prospects move forward.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Automated Nurture</h3>
+            <p>Personalized email sequences, SMS reminders, and follow-up videos keep your gym top-of-mind 24/7.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Smart Scheduling</h3>
+            <p>Leads book trial sessions automatically. No back-and-forth. They show up on your calendar ready to train.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">5</div>
+            <h3>Conversion Tracking</h3>
+            <p>Real-time reporting shows you where leads come from, conversion rates, and revenue per channel. Optimize everything.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHO IT'S FOR SECTION -->
+<section class="who-for">
+    <div class="section-header">
+        <h2>Who This Is <span class="highlight">Perfect For</span></h2>
+        <p>If this sounds like you, you're in the right place</p>
+    </div>
+    <div class="who-for-content">
+        <div class="who-for-image">
+            <img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=600&h=450&fit=crop" alt="Gym owner success">
+        </div>
+        <div class="who-for-list">
+            <div class="who-for-item">
+                <div class="who-for-check">✓</div>
+                <div>
+                    <h4>10-500 Member Gyms</h4>
+                    <p>Boutique studios, CrossFit boxes, personal training studios, or traditional gyms looking to scale predictably.</p>
+                </div>
+            </div>
+            <div class="who-for-item">
+                <div class="who-for-check">✓</div>
+                <div>
+                    <h4>Fitness Business Owners</h4>
+                    <p>You're skilled at the fitness side but want help with lead generation, sales, and member retention.</p>
+                </div>
+            </div>
+            <div class="who-for-item">
+                <div class="who-for-check">✓</div>
+                <div>
+                    <h4>Goal-Driven Entrepreneurs</h4>
+                    <p>You want to 2X or 3X revenue without adding more staff. You're ready to invest in systems that scale.</p>
+                </div>
+            </div>
+            <div class="who-for-item">
+                <div class="who-for-check">✓</div>
+                <div>
+                    <h4>Results-Focused Teams</h4>
+                    <p>You track metrics, optimize based on data, and care about ROI. You want to see proof before committing.</p>
+                </div>
+            </div>
+            <div class="who-for-item">
+                <div class="who-for-check">✓</div>
+                <div>
+                    <h4>Local Market Dominators</h4>
+                    <p>You want to own your market and have the only gym prospects think of when they decide to get serious about fitness.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BEFORE/AFTER SECTION -->
+<section class="before-after">
+    <div class="section-header">
+        <h2>Transformation <span class="highlight">in 30 Days</span></h2>
+        <p>See the dramatic difference between a reactive gym and one with a systematic lead generation machine</p>
+    </div>
+    <div class="before-after-image">
+        <img src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1000&h=400&fit=crop" alt="Before and after transformation">
+    </div>
+    <div class="before-after-cta">
+        <button class="btn btn-primary" onclick="openForm()">Start Your Transformation</button>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials">
+    <div class="section-header">
+        <h2>What <span class="highlight">Successful Gym Owners</span> Say</h2>
+        <p>Real results from real gym owners just like you</p>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"We went from 2-3 inquiries per month to 25-30 qualified leads. Our memberships jumped from 120 to 280 in 90 days. This system works."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JM</div>
+                <div class="author-info">
+                    <h4>James Miller</h4>
+                    <p>CrossFit Box Owner</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"I was skeptical about automation, but the system sends the right message at the right time. Conversion rates are up 180%. Game changer."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">SR</div>
+                <div class="author-info">
+                    <h4>Sarah Richardson</h4>
+                    <p>Personal Training Studio</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Went from $15K to $42K monthly revenue in 6 months. The lead quality is insane—people actually show up and convert. Worth every penny."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">MK</div>
+                <div class="author-info">
+                    <h4>Marcus Khan</h4>
+                    <p>Boutique Gym Chain (3 locations)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq">
+    <div class="section-header">
+        <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+        <p>Everything you need to know before getting started</p>
+    </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                How long until I see results?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">Most clients see their first qualified leads within 2-3 weeks and their first conversions within 30-45 days. Results depend on your current traffic, conversion rates, and how optimized your sales process is. We provide a detailed timeline in the consultation.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What if my gym is small or just starting out?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">This works for gyms of all sizes. We've helped solo trainers with 10 clients and multi-location chains with 2,000+ members. We scale the strategy based on your current stage and budget. You only pay for what you need.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                How much does this cost?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">Pricing varies based on your gym size, current lead flow, and goals. We have flexible packages starting at $1K/month and scaling based on performance. Most clients see ROI within 60-90 days. Schedule a free consultation to get a custom quote.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Do you guarantee results?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">We guarantee you'll get leads. If you don't get at least 10 qualified leads in your first 30 days, we'll continue working for free until you hit that number. Our reputation is built on results, not empty promises.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What's the difference between this and hiring a sales rep?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">A sales rep costs $3-5K/month and only works 40 hours/week. Our system works 24/7, costs less, and doesn't take vacation. You get the benefits of a full sales team without the overhead. Plus, you keep your rep if you want them—our system just gives them better leads to work with.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Will this work if I have no marketing budget?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">We can work with minimal budget using organic strategies (SEO, content marketing, referral systems). However, to see rapid results, a small ad spend of $500-1K/month makes a huge difference. We'll show you exactly how to allocate budget for maximum ROI.</div>
+        </div>
+    </div>
+</section>
+
+<!-- GUARANTEE SECTION -->
+<section class="guarantee">
+    <div class="guarantee-content">
+        <div class="guarantee-badge">
+            <div class="guarantee-badge-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>100% Results Guarantee</h3>
+        </div>
+        <div class="guarantee-text">
+            <h2>We're So Confident, We <span class="highlight">Put Our Money Where Our Mouth Is</span></h2>
+            <p>You won't find another lead generation company willing to make this promise. Here's why we can:</p>
+            <div class="guarantee-list">
+                <div class="guarantee-item">
+                    <div class="guarantee-check">✓</div>
+                    <p><strong>10 Qualified Leads Guarantee:</strong> If you don't get at least 10 qualified leads in your first 30 days, we work for free until you do.</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-check">✓</div>
+                    <p><strong>60-Day Conversion Guarantee:</strong> If these leads don't convert at the rate we project, we optimize your sales process at no extra cost.</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-check">✓</div>
+                    <p><strong>ROI Transparency:</strong> You get real-time dashboards showing every lead source, cost-per-lead, and revenue attribution. No guessing games.</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-check">✓</div>
+                    <p><strong>Money-Back Promise:</strong> If after 90 days you don't see measurable improvement in lead quality and quantity, we'll refund your last month. No questions asked.</p>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-size: 13px; color: #666;">That's how confident we are in our process and track record.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA SECTION -->
+<section class="final-cta">
+    <div class="final-cta-content">
+        <div class="final-urgency"><i class="fas fa-clock"></i> Only 5 Consultation Slots Available This Month</div>
+        <h2>Ready to Fill Your Gym With <span class="highlight">Serious Members?</span></h2>
+        <p>Stop chasing every lead that comes through the door. Start attracting serious fitness buyers who are ready to commit, ready to pay, and ready to transform their bodies.</p>
+        <button class="btn btn-primary" onclick="openForm()" style="margin-top: 20px; font-size: 16px; padding: 18px 50px;">Get Your Free Strategy Session</button>
+        <p style="margin-top: 20px; font-size: 13px; color: #666;">No credit card required. 30-minute strategy call to identify your biggest opportunity.</p>
+    </div>
+</section>
+
+<!-- FORM MODAL -->
+<div class="form-modal" id="formModal">
+    <div class="form-container">
+        <button class="close-form" onclick="closeForm()">&times;</button>
+        <h2>Claim Your Free Strategy Session</h2>
+        <p>Fill out this quick form and we'll reach out to schedule your personalized consultation.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+            <div class="form-group">
+                <label for="gymName">Gym / Business Name</label>
+                <input type="text" id="gymName" name="gymName" placeholder="Your Gym Name" required>
+            </div>
+            <div class="form-group">
+                <label for="members">Current Member Count</label>
+                <select id="members" name="members" required>
+                    <option value="" style="color: #999;">Select range</option>
+                    <option value="1-50" style="color: #ffffff;">1-50 members</option>
+                    <option value="51-100" style="color: #ffffff;">51-100 members</option>
+                    <option value="101-250" style="color: #ffffff;">101-250 members</option>
+                    <option value="251-500" style="color: #ffffff;">251-500 members</option>
+                    <option value="500+" style="color: #ffffff;">500+ members</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="painPoint">What's Your Biggest Challenge Right Now?</label>
+                <select id="painPoint" name="painPoint" required>
+                    <option value="" style="color: #999;">Select an option</option>
+                    <option value="low-leads" style="color: #ffffff;">Not enough qualified leads</option>
+                    <option value="low-conversion" style="color: #ffffff;">Leads not converting</option>
+                    <option value="retention" style="color: #ffffff;">Member retention</option>
+                    <option value="scaling" style="color: #ffffff;">Scaling without staff</option>
+                    <option value="marketing-roi" style="color: #ffffff;">Not sure about marketing ROI</option>
+                    <option value="other" style="color: #ffffff;">Other</option>
+                </select>
+            </div>
+            <button type="submit" class="form-submit">Get My Free Consultation</button>
+        </form>
+        <div id="successMessage" style="display: none;">
+            <div class="form-success">
+                <h3>Thank You!</h3>
+                <p>Your application has been received. We'll reach out within 2 hours to confirm your strategy session.</p>
+                <p style="margin-top: 15px; font-size: 12px;">Check your email for a confirmation link.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 Gym Growth System. All rights reserved. Your journey to predictable growth starts today.</p>
+    <p>
+        <a href="#" onclick="event.preventDefault()">Privacy Policy</a> • 
+        <a href="#" onclick="event.preventDefault()">Terms of Service</a> • 
+        <a href="#" onclick="event.preventDefault()">Contact Support</a>
+    </p>
+    <p style="color: #444; margin-top: 15px;">This page is designed to convert gym owners into qualified leads. No external navigation links. Single-page conversion funnel.</p>
+</footer>
+
+<script>
+    function openForm() {
+        document.getElementById('formModal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeForm() {
+        document.getElementById('formModal').classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            gymName: document.getElementById('gymName').value,
+            members: document.getElementById('members').value,
+            painPoint: document.getElementById('painPoint').value,
+            timestamp: new Date().toISOString()
+        };
+
+        // Store in localStorage (for demonstration)
+        let submissions = JSON.parse(localStorage.getItem('gymLeads')) || [];
+        submissions.push(formData);
+        localStorage.setItem('gymLeads', JSON.stringify(submissions));
+
+        console.log('Lead captured:', formData);
+
+        // Show success message
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Reset form after delay
+        setTimeout(() => {
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('contactForm').reset();
+            closeForm();
+        }, 3000);
+    }
+
+    function submitHeroForm(event) {
+        event.preventDefault();
+
+        const formData = {
+            name: document.getElementById('heroName').value,
+            email: document.getElementById('heroEmail').value,
+            phone: document.getElementById('heroPhone').value,
+            gymName: document.getElementById('heroGymName').value,
+            members: document.getElementById('heroMembers').value,
+            painPoint: document.getElementById('heroPainPoint').value,
+            timestamp: new Date().toISOString()
+        };
+
+        // Store in localStorage (for demonstration)
+        let submissions = JSON.parse(localStorage.getItem('gymLeads')) || [];
+        submissions.push(formData);
+        localStorage.setItem('gymLeads', JSON.stringify(submissions));
+
+        console.log('Lead captured:', formData);
+
+        // Show success message
+        document.getElementById('heroContactForm').style.display = 'none';
+        document.getElementById('heroSuccessMessage').style.display = 'block';
+
+        // Reset form after delay
+        setTimeout(() => {
+            document.getElementById('heroContactForm').style.display = 'block';
+            document.getElementById('heroSuccessMessage').style.display = 'none';
+            document.getElementById('heroContactForm').reset();
+        }, 3000);
+    }
+
+    function toggleFAQ(element) {
+        const item = element.parentElement;
+        item.classList.toggle('active');
+    }
+
+    // Close form when clicking outside
+    document.getElementById('formModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeForm();
+        }
+    });
+
+    // Prevent all external navigation
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' && e.target.href && e.target.href !== '#') {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
